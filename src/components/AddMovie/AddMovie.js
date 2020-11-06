@@ -8,7 +8,11 @@ class AddMovie extends Component {
       return (
         <div className="AddMovie">
           <h1>Movies!</h1>
-          <buttton>AddMovie</buttton>
+          <input>Movie Title</input>
+          <input>Poster Image</input>
+          <p>Text Area</p>
+          <buttton>Cancel</buttton>
+          <buttton>Save</buttton>
         </div>
       );
     }
