@@ -1,15 +1,18 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import AddMovie from '../AddMovie/AddMovie';
 
 
 class ListPage extends Component {
 
     render() {
+        
       return (
         <>
-          {/* {this.props.reduxStore.genres.map((genre) => {
-              return <img src={.images.original.url} />
-          })} */}
+        <pre>{JSON.stringify(this.props.reduxState)}</pre>
+          {this.props.reduxState.movies.map((movie) => {
+              return <img src={movie.poster} />
+          })}
         </>
       );
     }

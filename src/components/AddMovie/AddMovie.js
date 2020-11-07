@@ -12,6 +12,10 @@ class AddMovie extends Component {
         }
     }
 
+    componentDidMount = () => {
+        this.getGenres()
+    }
+
     handleChange = event => {
         console.log('new movie event')
         this.setState({
@@ -39,7 +43,7 @@ class AddMovie extends Component {
     }
 
     getGenres = () => {
-        this.props.dispatch({type: 'SET_GENRES'})
+        this.props.dispatch({type: 'FETCH_GENRES'})
     }
 
     render() {
