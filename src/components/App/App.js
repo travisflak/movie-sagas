@@ -14,11 +14,11 @@ class App extends Component {
       <div className="App">
         <h1>Movies!</h1>
         <Router>
-          {/* ADD PAGES! */}
           <div>
-            <Route exact path= "/" component ={AddMovie}/>
+            {/* ADD PAGES! */}
+            <Route exact path= "/home" component ={ListPage} />
             <Route path="/Details" component ={Details}/>
-            <Route path="/ListPage" component ={ListPage}/>
+            <Route path="/AddMovie" component ={AddMovie}/>
           </div>
         </Router>
         <p>Empty Page</p>

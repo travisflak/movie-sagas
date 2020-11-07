@@ -5,30 +5,52 @@ import { connect } from 'react-redux';
 class AddMovie extends Component {
     //create a local state
     state = {
-        addingMovie: ''
+        newMovie: {
+            title: '',
+            poster: '',
+            description: ''
+        }
     }
 
     handleChange = event => {
-        console.log('event happended')
+        console.log('new movie event')
         this.setState({
-            addingMovie: {
-                addingMovie: event.target.value,
+            newMovie: {
+                ...this.state.newMovie,
+                title: event.target.value,
+                poster: event.target.value,
+                description: event.target.value,
+                genre: event.target.value,
+            }
+        });
+    }
+
+    addNewMovie = event => {
+        event.preventDefault();
+        this.props.dispatch({ type: 'ADD_MOVIE', paylaod: this.state.newMovie })
+        this.setState({
+            newMovie: {
+                title: '',
+                poster: '',
+                description: '',
+                genre: '',
             }
         });
     }
 
 
-
     render() {
       return (
             <div>
-                <h1></h1>
-                <p>Text Area</p>
-                <form onSubmit={this.handleSubmit}>
-                    <label>title</label>
+                <h3>Movie List</h3>
+                <pre>{JSON.stringify(this.state)}</pre>
+                <form onSubmit={this.addNewMovie}>
                         <input type='text' placeholder='title' value={this.state.title} onChange={this.handleChange}/>
-                    <label>poster</label>
                         <input type='text' placeholder='poster' value={this.state.poster} onChange={this.handleChange}/>
+                    <label>
+                        description
+                        <textarea value={this.state.description}onChange={this.handleChange} />
+                    </label>    
                     <label>
                     Pick a genre:
                         <select value={this.state.value} onChange={this.handleChange}>
@@ -48,8 +70,8 @@ class AddMovie extends Component {
                         </select>
                     </label>
                     <input type="submit" value="Submit" />
-                    <buttton>Cancel</buttton>
-                    <buttton>Save</buttton>
+                    <buttton onClic={this.saveMovie}>Save</buttton>
+                    <buttton onClick={this.cancelMovie}>Cancel</buttton>
                 </form>
             </div>
       );
