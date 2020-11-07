@@ -6,11 +6,11 @@ import AddMovie from '../AddMovie/AddMovie';
 class ListPage extends Component {
 
     render() {
-        
+        const movies = this.props.reduxState.movies ? this.props.reduxState.movies : [];
       return (
         <>
-        <pre>{JSON.stringify(this.props.reduxState)}</pre>
-          {this.props.reduxState.movies.map((movie) => {
+        {/* <pre>{JSON.stringify(this.props.reduxState)}</pre> */}
+          {movies.map((movie) => {
               return <img src={movie.poster} />
           })}
         </>
