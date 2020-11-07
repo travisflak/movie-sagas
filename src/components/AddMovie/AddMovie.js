@@ -38,6 +38,9 @@ class AddMovie extends Component {
         });
     }
 
+    getGenres = () => {
+        this.props.dispatch({type: 'SET_GENRES'})
+    }
 
     render() {
       return (
@@ -54,19 +57,9 @@ class AddMovie extends Component {
                     <label>
                     Pick a genre:
                         <select value={this.state.value} onChange={this.handleChange}>
-                            <option value="Adventure">Adventure</option>
-                            <option value="Animated">Animated</option>
-                            <option value="Biographical">Biographical</option>
-                            <option value="Comedy">Comedy</option>
-                            <option value="Disaster">Disaster</option>
-                            <option value="Drama">Drama</option>
-                            <option value="Epic">Epic</option>
-                            <option value="Fantasy">Fantasy</option>
-                            <option value="Musical">Musical</option>
-                            <option value="Romantic">Romantic</option>
-                            <option value="Science Fiction">Science Fiction</option>
-                            <option value="Space-Opera">Space-Opera</option>
-                            <option value="Superhero">Superhero</option>
+                            {this.props.reduxState.genres.map((genre) => {
+                            return <option value="name">{genre.name}</option> 
+                            })}
                         </select>
                     </label>
                     <input type="submit" value="Submit" />

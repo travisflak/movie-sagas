@@ -15,6 +15,7 @@ import { takeEvery, put } from 'redux-saga/effects'
 // Create the rootSaga generator function
 function* rootSaga() {
     yield takeEvery('GET_MOVIES', getMovies);
+    yield takeEvery('SET_GENRES', getGenres)
 }
 
 // Create sagaMiddleware
@@ -49,6 +50,17 @@ function* getMovies(){
         console.log('error in get', error);
     }
 }
+
+function* getGenres(){
+    try{
+        let response = yield Axios.get('/api/genre')
+        console.log(response.data);
+        yield put ({type: 'SET_GENRES', payload: response.data})
+    } catch(error){
+        console.log('error in get', error);
+    }
+}
+
 // Create one store that all components can use
 const storeInstance = createStore(
     combineReducers({

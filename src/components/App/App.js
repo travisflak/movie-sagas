@@ -9,6 +9,15 @@ import ListPage from '../ListPage/ListPage.js';
 
 class App extends Component {
   // Renders the entire app on the DOM
+
+  componentDidMount = () => {
+    this.getMovies()
+}
+
+  getMovies = () => {
+    this.props.dispatch({type: 'GET_MOVIES'})
+}
+
   render() {
     return (
       <div className="App">
