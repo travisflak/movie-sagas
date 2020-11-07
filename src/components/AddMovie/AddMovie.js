@@ -70,9 +70,9 @@ class AddMovie extends Component {
                         </select>
                     </label>
                     <input type="submit" value="Submit" />
-                    <buttton onClic={this.saveMovie}>Save</buttton>
-                    <buttton onClick={this.cancelMovie}>Cancel</buttton>
                 </form>
+                <button onClick={this.saveMovie}>Save</button>
+                <button onClick={this.cancelMovie}>Cancel</button>
             </div>
       );
     }
