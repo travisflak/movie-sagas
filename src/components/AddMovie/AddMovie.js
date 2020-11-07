@@ -21,37 +21,37 @@ class AddMovie extends Component {
 
     render() {
       return (
-        <>  
-            <div className="AddMovie">
-            <h1>Movies!</h1>
-            <input>Movie Title</input>
-            <input>Poster Image</input>
-            <p>Text Area</p>
-            <form onSubmit={this.handleSubmit}>
-            <label>
-            Pick a genre:
-            <select value={this.state.value} onChange={this.handleChange}>
-                <option value="Adventure">Adventure</option>
-                <option value="Animated">Animated</option>
-                <option value="Biographical">Biographical</option>
-                <option value="Comedy">Comedy</option>
-                <option value="Disaster">Disaster</option>
-                <option value="Drama">Drama</option>
-                <option value="Epic">Epic</option>
-                <option value="Fantasy">Fantasy</option>
-                <option value="Musical">Musical</option>
-                <option value="Romantic">Romantic</option>
-                <option value="Science Fiction">Science Fiction</option>
-                <option value="Space-Opera">Space-Opera</option>
-                <option value="Superhero">Superhero</option>
-            </select>
-            </label>
-            <input type="submit" value="Submit" />
-        </form>
-            <buttton>Cancel</buttton>
-            <buttton>Save</buttton>
+            <div>
+                <h1></h1>
+                <p>Text Area</p>
+                <form onSubmit={this.handleSubmit}>
+                    <label>title</label>
+                        <input type='text' placeholder='title' value={this.state.title} onChange={this.handleChange}/>
+                    <label>poster</label>
+                        <input type='text' placeholder='poster' value={this.state.poster} onChange={this.handleChange}/>
+                    <label>
+                    Pick a genre:
+                        <select value={this.state.value} onChange={this.handleChange}>
+                            <option value="Adventure">Adventure</option>
+                            <option value="Animated">Animated</option>
+                            <option value="Biographical">Biographical</option>
+                            <option value="Comedy">Comedy</option>
+                            <option value="Disaster">Disaster</option>
+                            <option value="Drama">Drama</option>
+                            <option value="Epic">Epic</option>
+                            <option value="Fantasy">Fantasy</option>
+                            <option value="Musical">Musical</option>
+                            <option value="Romantic">Romantic</option>
+                            <option value="Science Fiction">Science Fiction</option>
+                            <option value="Space-Opera">Space-Opera</option>
+                            <option value="Superhero">Superhero</option>
+                        </select>
+                    </label>
+                    <input type="submit" value="Submit" />
+                    <buttton>Cancel</buttton>
+                    <buttton>Save</buttton>
+                </form>
             </div>
-        </>
       );
     }
   }

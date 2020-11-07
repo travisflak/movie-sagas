@@ -19,7 +19,6 @@ class App extends Component {
             <Route exact path= "/" component ={AddMovie}/>
             <Route path="/Details" component ={Details}/>
             <Route path="/ListPage" component ={ListPage}/>
-            <h1>Giphy Search!</h1>
           </div>
         </Router>
         <p>Empty Page</p>
