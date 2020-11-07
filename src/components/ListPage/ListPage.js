@@ -4,12 +4,21 @@ import { connect } from 'react-redux';
 
 class ListPage extends Component {
 
+    componentDidMount = () => {
+        this.getMovies()
+    }
+
+    getMovies = () => {
+        this.props.dispatch({type: 'GET_MOVIES'})
+    }
+
     render() {
       return (
-        <div className="ListPage">
-          <h1>Movies!</h1>
-          <buttton>Clicked Movie Poster</buttton>
-        </div>
+        <>
+          {/* {this.props.reduxStore.randomGifsList.map((gif) => {
+              return <img src={gif.images.original.url} />
+          })} */}
+        </>
       );
     }
   }
