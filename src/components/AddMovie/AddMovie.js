@@ -45,6 +45,35 @@ class AddMovie extends Component {
     getGenres = () => {
         this.props.dispatch({type: 'FETCH_GENRES'})
     }
+    //on click function for save button
+    saveMovie = ( event ) => { 
+
+        if(this.state.saveMovie === true) {
+            
+        }
+          else {            
+            this.props.dispatch ({
+            type: 'ADD_MOVIE',
+            payload: this.state.newMovie
+        })
+          this.props.history.push('/')
+        }
+    }
+    //on click function for cancel button
+    cancelMovie = ( event ) => { 
+
+        if(this.state.cancelMovie === true) {
+                
+        }
+          else {            
+            this.props.dispatch ({
+            type: 'CANCEL_MOVIE',
+            payload: this.state.cancelMovie
+        })
+            this.props.history.push('/')
+        }
+    }
+
 
     render() {
       return (
@@ -82,15 +111,15 @@ class AddMovie extends Component {
 
 //   This should show:
 
-// - an input field (for the movie title)
-// - an input field (for the movie poster image URL))
-// - a textarea (for the movie description)
-// - a dropdown (for the genres)
+// x- an input field (for the movie title)
+// x- an input field (for the movie poster image URL))
+// x- a textarea (for the movie description)
+// x- a dropdown (for the genres)
 
 // The Add Movie page should have the buttons:
 
 // - `Cancel` button, which should bring the user to the Home/List Page
 // - `Save` button, which should update the title and description in the database and bring the user to the Home/List Page (which now has the new movie)
 
-// > Hint: Look at the /api/movie POST route -- it's been made already
-// > Hint: You'll want to use the genres that are in the db for your dropdown
+// x> Hint: Look at the /api/movie POST route -- it's been made already
+// >x Hint: You'll want to use the genres that are in the db for your dropdown

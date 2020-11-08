@@ -17,6 +17,8 @@ function* rootSaga() {
     yield takeEvery('GET_MOVIES', getMovies);
     yield takeEvery('FETCH_GENRES', getGenres);
     yield takeEvery('GET_DETAILS', getDetails);
+    //add movies by user
+    yield takeEvery('ADD_MOVIE', addMovie);
 
 }
 
@@ -33,10 +35,29 @@ const movies = (state = [], action) => {
     }
 }
 
+//add movies function by user
+const addMovie = (state = [], action) => {
+    switch (action.type) {
+        case 'ADD_MOVIE':
+            return action.payload;
+        default:
+            return state;
+    }
+}
+
 // Used to store the movie genres
 const genres = (state = [], action) => {
     switch (action.type) {
         case 'SET_GENRES':
+            return action.payload;
+        default:
+            return state;
+    }
+}
+//reducer for details with switch
+const details = (state = {}, action) => {
+    switch (action.type) {
+        case 'SET_DETAILS':
             return action.payload;
         default:
             return state;
@@ -75,12 +96,23 @@ function* getDetails(){
         console.log('error in get', error);
     }
 }
+// genrator function for addMovie
+function* addNewMovie(){
+    console.log('hello from addNewMovie', action.payload);
+    try{
+    yield Axios.post('/api/movie', action.payload)
+    yield put({type: 'ADD_MOVIE'});
+    } catch (error){
+        console.log('error in post', error);
+    }
+}
 
 // Create one store that all components can use
 const storeInstance = createStore(
     combineReducers({
         movies,
         genres,
+        details,
     }),
     // Add sagaMiddleware to our store
     applyMiddleware(sagaMiddleware, logger),
