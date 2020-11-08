@@ -23,9 +23,6 @@ class AddMovie extends Component {
             newMovie: {
                 ...this.state.newMovie,
                 [type]: event.target.value,
-                // poster: event.target.value,
-                // description: event.target.value,
-                // name: event.target.value,
             }
         });
     }
@@ -109,18 +106,3 @@ class AddMovie extends Component {
   });
   
   export default connect(mapReduxStateToProps)(AddMovie);
-
-//   This should show:
-
-// x- an input field (for the movie title)
-// x- an input field (for the movie poster image URL))
-// x- a textarea (for the movie description)
-// x- a dropdown (for the genres)
-
-// The Add Movie page should have the buttons:
-
-// - `Cancel` button, which should bring the user to the Home/List Page
-// - `Save` button, which should update the title and description in the database and bring the user to the Home/List Page (which now has the new movie)
-
-// x> Hint: Look at the /api/movie POST route -- it's been made already
-// >x Hint: You'll want to use the genres that are in the db for your dropdown

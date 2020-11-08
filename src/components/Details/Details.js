@@ -7,7 +7,6 @@ class Details extends Component {
     state = {
         details: [],
         genres: []
-    
     } 
 
     componentDidMount = () => {

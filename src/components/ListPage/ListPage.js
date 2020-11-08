@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 class ListPage extends Component {
-
+    //handle change to push the movie details
     handleChange = (idMovie) => {
         this.props.history.push(`/details/${idMovie}`);
     }
-
+//render movies to the DOM
     render() {
         const movies = this.props.reduxState.movies ? this.props.reduxState.movies : [];
       return (
