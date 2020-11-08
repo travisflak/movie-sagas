@@ -8,7 +8,8 @@ class AddMovie extends Component {
         newMovie: {
             title: '',
             poster: '',
-            description: ''
+            description: '',
+            name: ''
         }
     }
 
@@ -16,15 +17,15 @@ class AddMovie extends Component {
         this.getGenres()
     }
     //handle change event
-    handleChange = event => {
+    handleChange = (event, type) => {
         console.log('new movie event')
         this.setState({
             newMovie: {
                 ...this.state.newMovie,
-                title: event.target.value,
-                poster: event.target.value,
-                description: event.target.value,
-                genre: event.target.value,
+                [type]: event.target.value,
+                // poster: event.target.value,
+                // description: event.target.value,
+                // name: event.target.value,
             }
         });
     }
@@ -37,7 +38,7 @@ class AddMovie extends Component {
                 title: '',
                 poster: '',
                 description: '',
-                genre: '',
+                name: '',
             }
         });
     }
@@ -81,17 +82,17 @@ class AddMovie extends Component {
                 <h3>Movie List</h3>
                 <pre>{JSON.stringify(this.state)}</pre>
                 <form onSubmit={this.addNewMovie}>
-                        <input type='text' placeholder='title' value={this.state.title} onChange={this.handleChange}/>
-                        <input type='text' placeholder='poster' value={this.state.poster} onChange={this.handleChange}/>
+                        <input type='text' placeholder='title' value={this.state.title} onChange={(event) => this.handleChange(event, 'title')}/>
+                        <input type='text' placeholder='poster' value={this.state.poster} onChange={(event) => this.handleChange(event, 'poster')}/>
                     <label>
                         description
-                        <textarea value={this.state.description}onChange={this.handleChange} />
+                        <textarea value={this.state.description}onChange={(event) => this.handleChange(event, 'description')} />
                     </label>    
                     <label>
                     Pick a genre:
-                        <select value={this.state.value} onChange={this.handleChange}>
+                        <select value={this.state.value} onChange={(event) => this.handleChange(event, 'genre')}>
                             {this.props.reduxState.genres.map((genre) => {
-                            return <option value="name">{genre.name}</option> 
+                            return <option value={genre.id}>{genre.name}</option> 
                             })}
                         </select>
                     </label>

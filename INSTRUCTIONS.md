@@ -61,8 +61,8 @@ This should show:
 
 The Add Movie page should have the buttons:
 
-- `Cancel` button, which should bring the user to the Home/List Page
-- `Save` button, which should update the title and description in the database and bring the user to the Home/List Page (which now has the new movie)
+x- `Cancel` button, which should bring the user to the Home/List Page
+x- `Save` button, which should update the title and description in the database and bring the user to the Home/List Page (which now has the new movie)
 
 > Hint: Look at the /api/movie POST route -- it's been made already
 > Hint: You'll want to use the genres that are in the db for your dropdown
@@ -77,7 +77,7 @@ As one of your last projects, it's possible you will be sharing this with employ
 - [ ] Invest some time in styling it up!
     - [ ] Research cards for your movie posters on the list page
     - [ ] Research grids for your movie posters on the Movie List page
-- [ ] Commit your code frequently! You should have at 15+ commits on a project of this size. 
+- [x] Commit your code frequently! You should have at 15+ commits on a project of this size. 
 -[]Use branches to help break down your features.
 - [x] Comment your code.
 - [ ] Update this README to include a description of the project in your own words.

@@ -91,7 +91,7 @@ function* addNewMovie(action){
     console.log('hello from addNewMovie', action.payload);
     try{
     yield Axios.post('/api/movie', action.payload)
-    yield put({type: 'ADD_MOVIE'});
+    yield put({type: 'GET_MOVIES'});
     } catch (error){
         console.log('error in post', error);
     }
