@@ -18,27 +18,17 @@ function* rootSaga() {
     yield takeEvery('FETCH_GENRES', getGenres);
     yield takeEvery('GET_DETAILS', getDetails);
     //add movies by user
-    yield takeEvery('ADD_MOVIE', addMovie);
+    yield takeEvery('ADD_MOVIE', addNewMovie);
 
 }
 
 // Create sagaMiddleware
 const sagaMiddleware = createSagaMiddleware();
 
-// Used to store movies returned from the server
+//add movies function by user
 const movies = (state = [], action) => {
     switch (action.type) {
         case 'SET_MOVIES':
-            return action.payload;
-        default:
-            return state;
-    }
-}
-
-//add movies function by user
-const addMovie = (state = [], action) => {
-    switch (action.type) {
-        case 'ADD_MOVIE':
             return action.payload;
         default:
             return state;
@@ -87,17 +77,17 @@ function* getGenres(){
 }
 
 //funcition generator for a movie description
-function* getDetails(){
+function* getDetails(action){
     try{
-        let response = yield Axios.get('/api/movie/genre')
+        let response = yield Axios.get(`/api/junction/${action.payload}`);
         console.log(response.data);
-        yield put ({type: 'SET_DETAILS', payload: response.data[0]})
+        yield put ({type: 'SET_DETAILS', payload: response.data})
     } catch(error){
         console.log('error in get', error);
     }
 }
 // genrator function for addMovie
-function* addNewMovie(){
+function* addNewMovie(action){
     console.log('hello from addNewMovie', action.payload);
     try{
     yield Axios.post('/api/movie', action.payload)
