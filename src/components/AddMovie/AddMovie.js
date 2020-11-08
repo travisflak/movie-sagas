@@ -15,7 +15,7 @@ class AddMovie extends Component {
     componentDidMount = () => {
         this.getGenres()
     }
-
+    //handle change event
     handleChange = event => {
         console.log('new movie event')
         this.setState({
@@ -28,7 +28,7 @@ class AddMovie extends Component {
             }
         });
     }
-
+    //adding a new movie
     addNewMovie = event => {
         event.preventDefault();
         this.props.dispatch({ type: 'ADD_MOVIE', paylaod: this.state.newMovie })
@@ -41,7 +41,7 @@ class AddMovie extends Component {
             }
         });
     }
-
+    //fetch genres from router query in genre.router
     getGenres = () => {
         this.props.dispatch({type: 'FETCH_GENRES'})
     }
@@ -66,7 +66,6 @@ class AddMovie extends Component {
                             })}
                         </select>
                     </label>
-                    <input type="submit" value="Submit" />
                 </form>
                 <button onClick={this.saveMovie}>Save</button>
                 <button onClick={this.cancelMovie}>Cancel</button>

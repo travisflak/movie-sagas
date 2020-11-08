@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import AddMovie from '../AddMovie/AddMovie';
-
 
 class ListPage extends Component {
 
@@ -9,9 +7,9 @@ class ListPage extends Component {
         const movies = this.props.reduxState.movies ? this.props.reduxState.movies : [];
       return (
         <>
-        {/* <pre>{JSON.stringify(this.props.reduxState)}</pre> */}
           {movies.map((movie) => {
-              return <img src={movie.poster} />
+              return<><img src={movie.poster} />
+              <p>{movie.description} </p></>
           })}
         </>
       );

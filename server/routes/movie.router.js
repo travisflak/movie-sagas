@@ -13,6 +13,23 @@ router.get('/', (req, res) => {
   });
 });
 
+router.get('/details/:id', (req, res) => {
+  //get description for a selected movie
+  console.log(req.params.id);
+  const queryText = `SELECT * FROM "movies WHERE "id" = $1;`
+  pool.query(queryText, [req.params.id])
+  .then(result => {
+    console.log(result.rows);
+    res.send(result.rows)
+  })
+  .catch(err => {
+    console.log('error in GET_DETAILS route', err);
+    res.sendStatus(500)
+    
+  });
+}) 
+
+
 router.post('/', (req, res) => {
   console.log(req.body);
   // RETURNING "id" will give us back the id of the created movie

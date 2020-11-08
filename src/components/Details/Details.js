@@ -5,11 +5,13 @@ import { connect } from 'react-redux';
 class Details extends Component {
 
     render() {
+        const movies = this.props.reduxState.movies ? this.props.reduxState.movies : [];
       return (
-        <div className="Details">
-          <h1>Movies!</h1>
-          <buttton>Back to List</buttton>
-        </div>
+        <>
+          {movies.map((movie) => {
+              return <p>{movie.description} </p>
+          })}
+        </>
       );
     }
   }
