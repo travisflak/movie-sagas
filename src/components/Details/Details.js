@@ -35,7 +35,6 @@ class Details extends Component {
 
     render() {
         const movies = this.props.reduxState.movies ? this.props.reduxState.movies : [];
-        // const details = this.props.reduxState.details ? this.props.reduxState.details : [];
       return (
         <>
             <p>{movies[this.props.match.params.id-1].description}</p>
