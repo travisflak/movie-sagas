@@ -32,12 +32,17 @@ class Details extends Component {
             }
         }
     }
+    //button to send the user back to the home page
+    backBtn = (event) => {
+        this.props.history.push('/')
+    }
 
     render() {
         const movies = this.props.reduxState.movies ? this.props.reduxState.movies : [];
       return (
         <>
             <p>{movies[this.props.match.params.id-1].description}</p>
+            <button onClick={this.backBtn}>Back</button>
             {console.log('checking', this.props)}
             
             {this.state.details.map((genreTag) => {
