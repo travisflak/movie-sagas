@@ -41,7 +41,7 @@ class Details extends Component {
         const movies = this.props.reduxState.movies ? this.props.reduxState.movies : [];
       return (
         <>
-            <p>{movies[this.props.match.params.id-1].description}</p>
+            <p>{movies[0].description}</p>
             <button onClick={this.backBtn}>Back</button>
             {console.log('checking', this.props)}
             
@@ -52,7 +52,7 @@ class Details extends Component {
       );
     }
   }
-  
+  //<p>{movies[this.props.match.params.id-1].description}</p>
   const mapReduxStateToProps = reduxState => ({
     reduxState
   });
